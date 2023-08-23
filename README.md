@@ -14,3 +14,5 @@ My general approach to this issue is as follows:
 
 Colab Code can be found here:
 https://colab.research.google.com/drive/19oOovJ3JY-s1o_NFc9Ht5TFCNByGlCCG?usp=sharing
+
+TODO: Single photo fitting with HACK model and generated texture.
