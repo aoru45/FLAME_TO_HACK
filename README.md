@@ -8,8 +8,8 @@ The HACK Model is a head model consists of a base topology along with definition
 For some reason, HACK didn't release its texture model. This Repo provides some scripts for converting FLAME's texture to HACK.
 My general approach to this issue is as follows:
 1. Fit HACK model(optimize shape parameter and pose parameter) to FLAME model, then they have generally the same shape but different mesh.
-2. Use KNN to obtain the interpolated pixels and render the HACK mesh to check whether it can be rendered correctly.
-3. Once I am sure that Step 2 is ok, I use KNN to get every UV coordinate in FLAME's texture space. It is hard to generate a new UV map using HACK's UV coordinate, so I choose to change HACK's UV coordinate to fit FLAME's texture space.
+2. Find the nearest face to obtain the interpolated pixels and render the HACK mesh to check whether it can be rendered correctly.
+3. Once I am sure that Step 2 is ok, next step is to find the nearest face and get every UV coordinate in FLAME's texture space. It is hard to generate a new UV map using HACK's UV coordinate, so I choose to change HACK's UV coordinate to fit FLAME's texture space.
 4. Finally, I render the HACK's shape and color to check its correctness.
 5. So, use the modified HACK UV coordinate is just ok. 
 ### HACK Fitting
