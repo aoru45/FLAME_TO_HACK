@@ -1,5 +1,5 @@
 # FLAME_TO_HACK
-Scripts to convert FLAME face model to HACK model(same facial topology as ICT-FaceKit).
+Scripts to convert FLAME face model to HACK model(same facial topology as ICT-FaceKit). This project is for reference and learning only. 
 
 ## Description
 ### Converting Texture
@@ -18,4 +18,10 @@ Fitting the hack model is to some extent impossible because we don't have person
 2. Fit the rendering parameters with non rigid optimization.
 
 Note that optimize the non-rigid parameters is very difficult, especially the bsw, bsw should be similary to human-make parameters, but we don't have that priori information. So I decided to set a smaller laerning rate to have a relativelly good result.
+
+## Related projects
+- [HACK](https://github.com/ZoneLikeWonderland/HACK-Model)
+- [FLAME](https://flame.is.tue.mpg.de)
+
+
 
