@@ -13,7 +13,7 @@ My general approach to this issue is as follows:
 4. Finally, I render the HACK's shape and color to check its correctness.
 5. So, use the modified HACK UV coordinate is just ok. 
 ### HACK Fitting
-Fitting the hack model is to some extent impossible because we don't have person-specific network to generate expression and pose cofficients. For my studying in this direction, I have decided to optimize a less precise model as a toy project. 
+Fitting the hack model is to some extent impossible because we don't have person-specific network to generate expression and pose cofficients. For my studying purpose in this field, I have decided to optimize a less precise model as a toy project. 
 1. Fit the camera and pose with rigid optimization, then the coordinates will be in range of 0 and 1.
 2. Fit the rendering parameters with non rigid optimization.
 
