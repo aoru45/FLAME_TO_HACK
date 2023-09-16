@@ -43,7 +43,7 @@ To get a perfect nose texture, I train the mapping network with multi-view rende
 
 ### Photo-metric Fitting for HACK with in-the-wild images
 
-Thanks to [FFHQ-HV](https://github.com/csbhr/FFHQ-UV.git), it publish a UV image generator with Style-GAN2. I free this generator network and optimize the z code for photo-metric fitting. This process is done with the help of differentiable rendering.
+Thanks to [FFHQ-HV](https://github.com/csbhr/FFHQ-UV.git), it publish a UV image generator with Style-GAN2. I freeze this generator network and optimize the z code for photo-metric fitting. This process is done with the help of differentiable rendering.
 
 CODE will be released in a week.
 
