@@ -27,15 +27,15 @@ There are many problems aligning these two meshes, I mask all eyes and mouth reg
 More detail should be compared in blender.
 
 ### Generate UV mapping by training a neural network
-I have tried to get the coordinates by finding the nearest face from HACK vertexes to FLAME faces, then get the uv coordinates by its barycentric coordinates. It works fine in most case. However, some "hole regions" like nose, mouth and eyes do not work fine. In the end, I decided to use a neural network to "overfitting" a uv mapper, the network predicts uv coordinates with 3d points input.
+I have tried to get the coordinates by finding the nearest face from HACK vertexes to FLAME faces, then get the uv coordinates by its barycentric coordinates. It works fine in most cases. However, some "hole regions" like nose, mouth and eyes do not work fine. In the end, I decided to use a neural network to "overfitting" a uv mapper, the network predicts uv coordinates with 3d points input.
 
-Refer to "AUV-Net: Learning Aligned UV Maps for Texture Transfer and Synthesis", I implement the mapping network by training a MLP to predict the uv coordinates of 3D points. I use FLAME's 3D points and its uv coordinates for training. Then use the network to predict the uv coordinate of aligned HACK vertex.
+Inspired by "AUV-Net: Learning Aligned UV Maps for Texture Transfer and Synthesis", I implement the mapping network by training a MLP to predict the uv coordinates of 3D points. I use FLAME's 3D points and its uv coordinates for training. Then I use the network to predict the uv coordinate of aligned HACK vertex.
 
 The paper itself uses Voxel information for training, I did some experiments and it implies that using a mapping network itself is enough for this task. 
 
 Smoothness of the network matters. Too complicated model structure will make the mapping function discontinuous in some way. I have tried spectral_norm, gradient penalty, and local smooth consistence, spectral_norm and local smooth consistence work best.
 
-To get a perfect nose texture, I train the mapping network with multi-view rendering loss. Then we will get a good texture coordinates and rendered like this:
+To get a perfect nose texture, I trained the mapping network with multi-view rendering loss. Then we will get a good texture coordinates and the rendered random uv map is like this:
 
 ![2023-09-16 16-33-29 的屏幕截图](assets/r3.png)
 
@@ -43,9 +43,9 @@ To get a perfect nose texture, I train the mapping network with multi-view rende
 
 ### Photo-metric Fitting for HACK with in-the-wild images
 
-Thanks to [FFHQ-HV](https://github.com/csbhr/FFHQ-UV.git), it publish a UV image generator with Style-GAN2. I freeze this generator network and optimize the z code for photo-metric fitting. This process is done with the help of differentiable rendering.
+Thanks to [FFHQ-HV](https://github.com/csbhr/FFHQ-UV.git), they publish a UV image generator with Style-GAN2. I freeze this generator network and optimize the z code for photo-metric fitting. This process is done with the help of differentiable rendering.
 
-TexGAN pretrained weights can be downloaded from [FFHQ-HV](https://github.com/csbhr/FFHQ-UV.git).
+TexGAN's pretrained weights can be downloaded from [FFHQ-HV](https://github.com/csbhr/FFHQ-UV.git).
 
 Given the reference image, the reconstructed model and rendered image is like this.
 
